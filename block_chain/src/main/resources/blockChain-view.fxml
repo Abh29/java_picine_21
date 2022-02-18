@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane fx:id="anchorPane" prefHeight="512.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.block_chain.controller.BlockChainController">
+   <children>
+      <JFXTreeTableView fx:id="blockChainTreeTableView" layoutX="-2.0" prefHeight="531.0" prefWidth="1006.0" AnchorPane.bottomAnchor="50" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0">
+         <columns>
+            <TreeTableColumn fx:id="idCol" prefWidth="50.0" text="id" />
+            <TreeTableColumn fx:id="previousHashCol" prefWidth="125.0" text="previous_hash" />
+            <TreeTableColumn fx:id="dataCol" prefWidth="350.0" text="Data" />
+            <TreeTableColumn fx:id="publicKeyCol" minWidth="0.0" prefWidth="200.0" text="public_key" />
+            <TreeTableColumn fx:id="nonceCol" prefWidth="50.0" text="nonce" />
+            <TreeTableColumn fx:id="hashCol" prefWidth="125.0" text="hash" />
+            <TreeTableColumn fx:id="timestampCol" prefWidth="100.0" text="created_at" />
+         </columns>
+      </JFXTreeTableView>
+      <Pane fx:id="buttonsPane" layoutY="530.0" prefHeight="50.0" prefWidth="1006.0" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0">
+         <children>
+            <JFXButton fx:id="addDataButton" onAction="#onClickButton" layoutX="802.0" layoutY="19.0" text="add data" />
+            <JFXButton fx:id="refreshButton" onAction="#onClickButton" layoutX="912.0" layoutY="19.0" text="refresh" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
