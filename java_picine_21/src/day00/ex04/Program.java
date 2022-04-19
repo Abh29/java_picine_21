@@ -6,11 +6,15 @@ public class Program {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        showDatagram(countLetters(scanner.nextLine().toCharArray()));
+
+        String input = scanner.nextLine();
+        if (!input.equals(""))
+            showDatagram(countLetters(input.toCharArray()));
     }
 
     public static int[][] countLetters(char[] str) {
         String unique = "";
+
         for (char c : str) {
             if (getIndex(unique.toCharArray(), c) == -1)
                 unique += c;

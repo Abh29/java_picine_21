@@ -10,11 +10,15 @@ public class Program {
 
         while (true)
         {
-            number = scanner.nextInt();
-            if (number == 42)
-                break;
-            if (isPrime(sumDigits(number)))
-                count++;
+            if (scanner.hasNextInt())
+            {
+                number = scanner.nextInt();
+                if (number == 42)
+                    break;
+                if (isPrime(sumDigits(number)))
+                    count++;
+            }else if(scanner.hasNext())
+                scanner.next();
         }
         System.out.println("Count of coffee-request - " + count);
     }

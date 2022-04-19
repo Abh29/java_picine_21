@@ -98,23 +98,23 @@ public class Program {
 
     public static void showTimeTable()
     {
-        System.out.print("            ");
+        System.out.print("           ");
         for (int i = 0; i < 30; i++) {
             for (int j = 0; j < 6; j++) {
                 if (timeTable[i][j][0] == 1){
-                    System.out.printf("%d:00 %3s %3d|", j + 1, september2020[i % 7], i + 1);
+                    System.out.printf("%d:00%3s%3d|", j + 1, september2020[i % 7], i + 1);
                 }
             }
         }
 
         for (int i = 0; i < nbStudents; i++) {
-            System.out.printf("\n %10s|", students[i]);
+            System.out.printf("\n%10s|", students[i]);
             for (int j = 0; j < 30; j++) {
                 for (int k = 0; k < 6; k++) {
                     if (timeTable[j][k][0] == 1 && timeTable[j][k][i + 1] == 0)
-                        System.out.print("            |");
+                        System.out.print("          |");
                     else if (timeTable[j][k][0] == 1)
-                        System.out.printf("%12d|", timeTable[j][k][i + 1]);
+                        System.out.printf("%10d|", timeTable[j][k][i + 1]);
                 }
             }
         }

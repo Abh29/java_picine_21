@@ -1,17 +1,18 @@
 package day00.ex03;
 
-import java.util.*;
+
+import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
         showData(collectData());
     }
 
-    public static List<Integer> collectData() {
+    public static String[] collectData() {
         Scanner scanner = new Scanner(System.in);
-        List<Integer> data = new ArrayList<>(18);
         String input;
-        int min;
+        String[] out = new String[18];
+        int min, w = 0;
 
         for (int i = 1; i < 19; i++) {
             input = scanner.nextLine();
@@ -31,20 +32,25 @@ public class Program {
                 }
                 min = min > tmp ? tmp : min;
             }
-            data.add(min);
+            out[w] = "";
+            for (int j = 0; j < min; j++) {
+                out[w] += "=";
+            }
+            out[w++] += ">";
             scanner.nextLine();
         }
-        return data;
+        return out;
     }
 
-    public static void showData(List<Integer> dict){
+    public static void showData(String data[]){
         int w = 1;
-        for (int i : dict) {
-            System.out.print("Week " + w++ + " ");
-            for (int j = 0; j < i; j++) {
-                System.out.print("=");
+
+        for (String s: data) {
+            if (s != null)
+            {
+                System.out.print("Week " + w++ + " ");
+                System.out.println(s);
             }
-            System.out.println(">");
         }
     }
 }
