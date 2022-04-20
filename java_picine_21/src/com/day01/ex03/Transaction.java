@@ -24,7 +24,10 @@ public class Transaction {
             System.err.println("Transaction couldn't be made!");
             return null;
         }
-        return new Transaction(recipient, sender, transferCategory, transferAmount);
+        Transaction t = new Transaction(recipient, sender, transferCategory, transferAmount);
+        recipient.getTransactions().addTransaction(t);
+        sender.getTransactions().addTransaction(t);
+        return t;
     }
 
     private Transaction(User recipient, User sender, ETransferCategories transferCategory, double transferAmount) {

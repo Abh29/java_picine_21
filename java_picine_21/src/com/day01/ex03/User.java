@@ -6,6 +6,7 @@ public class User {
     private final int ID;
     private String name;
     private double balance;
+    private TransactionLinkedList transactions;
 
 
     public static User newUser(String name){
@@ -24,6 +25,7 @@ public class User {
 
     private User(){
         ID = UserIdsGenerator.getInstance().generateId();
+        transactions = new TransactionLinkedList();
     }
 
     private User(String name) {
@@ -84,7 +86,7 @@ public class User {
         return Objects.hash(ID, name, balance);
     }
 
-    /*****************************/
-
-
+    public TransactionLinkedList getTransactions() {
+        return transactions;
+    }
 }
