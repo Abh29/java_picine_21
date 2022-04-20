@@ -1,4 +1,4 @@
-package day00.ex00;
+package com.day00.ex00;
 
 public class Program {
 
