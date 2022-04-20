@@ -1,4 +1,4 @@
-package com.day01.ex03;
+package com.day01.ex04;
 
 public class Program {
 

@@ -1,9 +1,9 @@
-package com.day01.ex03;
+package com.day01.ex04;
 
 import java.util.Arrays;
 import java.util.UUID;
 
-public class TransactionLinkedList implements TransactionList{
+public class TransactionLinkedList implements TransactionList {
 
     private Transaction root = null;
     private Transaction tail = null;

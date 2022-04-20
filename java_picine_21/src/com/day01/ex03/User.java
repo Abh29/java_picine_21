@@ -1,7 +1,5 @@
 package com.day01.ex03;
 
-import com.day01.ex01.UserIdsGenerator;
-
 import java.util.Objects;
 
 public class User {

@@ -1,4 +1,4 @@
-package com.day01.ex02;
+package com.day01.ex04;
 
 import java.util.Objects;
 
