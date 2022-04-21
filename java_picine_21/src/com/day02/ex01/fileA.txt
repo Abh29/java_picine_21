@@ -1,1 +1,4 @@
 aaa bba bba a ссс
+Fowler–Noll–Vo (or FNV) is a non-cryptographic hash function created by Glenn Fowler, Landon Curt Noll, and Kiem-Phong Vo.
+The basis of the FNV hash algorithm was taken from an idea sent as reviewer comments to the IEEE POSIX P1003.2 committee by Glenn Fowler and Phong Vo in 1991. In a subsequent ballot round,
+Landon Curt Noll improved on their algorithm. In an email message to Landon, they named it the Fowler/Noll/Vo or FNV hash

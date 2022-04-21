@@ -1,9 +1,6 @@
 package com.day02.ex01;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -20,11 +17,24 @@ public class FilesComparator {
         file2 = new File(filePath2);
         dictionary = new TreeMap<>();
         loadDictionary();
+
     }
 
     private void loadDictionary() throws IOException{
        loadFile(file1, 0);
        loadFile(file2, 1);
+       BufferedWriter bw = new BufferedWriter(new FileWriter("src\\com\\day02\\ex01\\dictionary.txt"));
+       dictionary.forEach((k, v) -> {
+           try {
+               bw.append(k + "\n");
+           } catch (IOException e) {
+               throw new UncheckedIOException(e);
+           }
+       });
+
+       bw.flush();
+       bw.close();
+
     }
 
     private void loadFile(File file, int i) throws IOException {

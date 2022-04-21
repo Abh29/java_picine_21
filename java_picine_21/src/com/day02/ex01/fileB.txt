@@ -1,1 +1,7 @@
 bba a a a bb xxx
+The current versions are FNV-1 and FNV-1a, which supply a means of creating non-zero FNV offset basis. FNV currently comes in 32-, 64-, 128-, 256-, 512-, and 1024-bit flavors. For pure FNV implementations, this is determined solely by the availability of FNV primes for the desired bit length; however
+the FNV webpage discusses methods of adapting one of the above versions to a smaller length that may or may not be a power of two.[2][3]
+The FNV hash algorithms and reference FNV source code[4][5] have been released into the public domain.
+The Python programming language previously used a modified version of the FNV scheme for its default hash function.
+From Python 3.4, FNV has been replaced with SipHash to resist "hash flooding" denial-of-service attacks.
+FNV is not a cryptographic hash
