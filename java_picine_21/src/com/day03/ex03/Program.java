@@ -16,7 +16,7 @@ public class Program {
             System.exit(-1);
         }
 
-        DownloadManager dm = new DownloadManager("src\\com\\day03\\ex03\\files_urls.txt", count);
+        DownloadManager dm = new DownloadManager("src/com/day03/ex03/files_urls.txt", count);
         try {
             dm.downloadAll();
         } catch (InterruptedException e) {

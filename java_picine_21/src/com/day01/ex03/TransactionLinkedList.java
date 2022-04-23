@@ -60,6 +60,8 @@ public class TransactionLinkedList implements TransactionList{
 
     @Override
     public Transaction[] toArray() {
+        if (size < 1)
+            return null;
         Transaction[] out = new Transaction[size];
         Transaction tmp = root;
 
