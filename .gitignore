@@ -10,6 +10,11 @@ out/
 out/*
 *.class
 
+java_intra
+java_intra/*
+
+
+
 # Compiled Java class files
 *.class
 
