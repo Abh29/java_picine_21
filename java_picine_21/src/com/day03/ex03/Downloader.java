@@ -51,6 +51,7 @@ public class Downloader extends Thread {
                 while (link == null) {
                    sleep(1000);
                 }
+                sleep(100);
                 if (link.equals("42"))
                     break;
                 else {

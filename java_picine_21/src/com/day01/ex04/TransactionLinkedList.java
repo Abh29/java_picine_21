@@ -58,12 +58,15 @@ public class TransactionLinkedList implements TransactionList {
         throw new RuntimeException("Transaction not found uuid = " + identifier.toString());
     }
 
+
     @Override
     public Transaction[] toArray() {
+        if (size < 1)
+            return null;
         Transaction[] out = new Transaction[size];
         Transaction tmp = root;
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size && tmp != null ; i++) {
             out[i] = tmp;
             tmp = tmp.getNext();
         }
@@ -77,6 +80,21 @@ public class TransactionLinkedList implements TransactionList {
     public Transaction getRoot() {
         return root;
     }
+
+
+    public boolean contains(UUID identifier){
+        if (root.getIdentifier().equals(identifier))
+            return true;
+        Transaction tmp = root;
+        while (tmp.getNext() != null)
+        {
+            tmp = tmp.getNext();
+            if (tmp.getIdentifier().equals(identifier))
+                return true;
+        }
+        return false;
+    }
+
 
     @Override
     public String toString() {

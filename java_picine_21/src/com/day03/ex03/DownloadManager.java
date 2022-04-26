@@ -64,9 +64,11 @@ public class DownloadManager {
             if (semaphore.tryAcquire())
             {
                 if ((available = getWaitingThread()) != null){
-                    available.setOutputName("src\\com\\day03\\ex03\\outfile_" + i);
+                    System.out.println("setting file");
+                    available.setOutputName("src/com/day03/ex03/outfile_" + i);
                     available.setLink(it.next());
                 }
+                semaphore.release();
             }
         }
 
