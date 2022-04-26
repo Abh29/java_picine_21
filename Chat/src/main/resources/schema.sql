@@ -32,7 +32,7 @@ create table messages(
     author integer not null,
     room integer not null,
     text varchar,
-    created_at timestamp not null,
+    created_at timestamp,
     constraint fk_chatter foreign key (author) references chatters(id),
     constraint fk_chatroom foreign key (room) references chatrooms(id)
 );

@@ -2,6 +2,7 @@ package edu.school21.chat;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -31,17 +32,24 @@ public class Program {
             MessagesRepositoryJdbcImp messages = new MessagesRepositoryJdbcImp(dataSource);
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Enter the author ID");
-            long authorId = scanner.nextLong();
-            System.out.println("Enter the chatroom ID");
-            long roomId = scanner.nextLong();
-
+            System.out.println("Enter a message id to update :");
+            long id = scanner.nextLong();
             scanner.nextLine();
-            System.out.println("Enter the message text");
+
+            Optional<Message> message = messages.findById(id);
+            if (!message.isPresent()){
+                System.err.println("no message id found ! " + id);
+                System.exit(-1);
+            }
+
+            System.out.println(message);
+
+            System.out.println("Enter the new message text");
             String text = scanner.nextLine();
 
-            long id = messages.saveMessage(authorId, roomId, text);
-            System.out.println("message id: " + id);
+            message.get().setText(text);
+
+            messages.updateMessage(message.get());
 
         } catch (Exception e) {
             e.printStackTrace();
