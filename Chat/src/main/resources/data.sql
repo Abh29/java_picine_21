@@ -36,3 +36,18 @@ VALUES
     (3,1,'cursus a, enim.', now()),
     (5,4,'sociis natoque penatibus et magnis dis parturient montes, nascetur', now()),
     (4,2,'adipiscing, enim mi tempor lorem, eget', now());
+
+INSERT INTO chatter_chatroom_table (chatter_id, chatroom_id)
+values
+    (1,3),
+    (2,1),
+    (2,2),
+    (3,3),
+    (3,2),
+    (3,1),
+    (4,4),
+    (4,2),
+    (4,3),
+    (5,2),
+    (5,3),
+    (5,4);

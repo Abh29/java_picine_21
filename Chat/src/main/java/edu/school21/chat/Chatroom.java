@@ -67,7 +67,8 @@ public class Chatroom {
         return "Chatroom{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", owner=" + owner +
+                ", owner id =" + owner.getId() +
+                ", owner name = " + owner.getLogin()+
                 '}';
     }
 

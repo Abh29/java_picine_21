@@ -64,13 +64,30 @@ public class MessagesRepositoryJdbcImp implements MessagesRepository{
             statement.setString(3,text);
 
             ResultSet rs = statement.executeQuery();
-            if (rs.next())
+            if (rs.next()){
+                addUserChatroomEntry(authorId, roomId);
                 return Long.parseLong(rs.getString(1));
+            }
+
 
         }catch (SQLException e){
             e.printStackTrace();
         }
         return (long) -1;
+    }
+
+    private void addUserChatroomEntry(Long userId, Long roomId){
+        String sql = "INSERT INTO chatter_chatroom_table (chatter_id, chatroom_id) values (?,?);";
+
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setLong(1, userId);
+            statement.setLong(2, roomId);
+            statement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override

@@ -2,9 +2,8 @@ package edu.school21.chat;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Optional;
+import java.util.List;
 import java.util.Properties;
-import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
@@ -29,27 +28,13 @@ public class Program {
         }
 
         try {
-            MessagesRepositoryJdbcImp messages = new MessagesRepositoryJdbcImp(dataSource);
-            Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Enter a message id to update :");
-            long id = scanner.nextLong();
-            scanner.nextLine();
+            UsersRepositoryJdbcImp users = new UsersRepositoryJdbcImp(dataSource);
 
-            Optional<Message> message = messages.findById(id);
-            if (!message.isPresent()){
-                System.err.println("no message id found ! " + id);
-                System.exit(-1);
+            List<User> found = users.findAll(0,3);
+            for (User u: found) {
+                System.out.println(u);
             }
-
-            System.out.println(message);
-
-            System.out.println("Enter the new message text");
-            String text = scanner.nextLine();
-
-            message.get().setText(text);
-
-            messages.updateMessage(message.get());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,3 +43,10 @@ public class Program {
 
     }
 }
+
+/*
+db.driver = org.postgresql.Driver
+db.url = jdbc:postgresql://localhost:5432/java_picine_day_05
+db.user = postgres
+db.password = @Abe29
+*/

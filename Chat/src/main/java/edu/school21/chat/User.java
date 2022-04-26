@@ -11,6 +11,14 @@ public class User {
     private ArrayList<Chatroom> chatrooms;
 
 
+    public User(Long id, String login, String password, ArrayList<Chatroom> createdRooms, ArrayList<Chatroom> chatrooms) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.createdRooms = createdRooms;
+        this.chatrooms = chatrooms;
+    }
+
     public User(Long id, String login, String password) {
         this.id = id;
         this.login = login;
