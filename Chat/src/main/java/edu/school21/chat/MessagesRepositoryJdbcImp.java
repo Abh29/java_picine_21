@@ -73,5 +73,29 @@ public class MessagesRepositoryJdbcImp implements MessagesRepository{
         return (long) -1;
     }
 
+    @Override
+    public boolean updateMessage(Message message){
 
+        if (message == null || message.getId() == null)
+            return false;
+
+        String sql = "update messages set author = ?, room = ?, text = ?, created_at = ? where id = ?";
+
+        PreparedStatement statement = null;
+
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setLong(1, message.getAuthor().getId());
+            statement.setLong(2, message.getRoom().getId());
+            statement.setString(3, message.getText());
+            statement.setLong(5, message.getId());
+            statement.setTimestamp(4, message.getTimestamp());
+            statement.execute();
+            return true;
+        }catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
