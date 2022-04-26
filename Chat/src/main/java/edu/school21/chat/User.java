@@ -69,9 +69,11 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", createdRooms=" + createdRooms +
+                ", chatrooms=" + chatrooms +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
