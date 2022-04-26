@@ -38,10 +38,40 @@ public class MessagesRepositoryJdbcImp implements MessagesRepository{
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return Optional.empty();
         }
-
         return Optional.empty();
-
     }
+
+    @Override
+    public Long saveMessage(Long authorId, Long roomId, String text) throws Exception{
+
+        Optional<User> author = new UsersRepositoryJdbcImp(dataSource).findById(authorId);
+        if (!author.isPresent())
+            throw new MyExeptions.NotSavedSubEntityException("user id not found " + authorId);
+
+        Optional<Chatroom> room = new ChatroomsRepositoryJdbcImp(dataSource).findById(roomId);
+        if (!room.isPresent())
+            throw new MyExeptions.NotSavedSubEntityException("user id not found " + authorId);
+
+        String sql = "INSERT INTO messages (author,room,text,created_at) values (?,?,?,now()) returning id;";
+
+        PreparedStatement statement = null;
+
+        try{
+            statement = connection.prepareStatement(sql);
+            statement.setLong(1,authorId);
+            statement.setLong(2,roomId);
+            statement.setString(3,text);
+
+            ResultSet rs = statement.executeQuery();
+            if (rs.next())
+                return Long.parseLong(rs.getString(1));
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return (long) -1;
+    }
+
+
 }
