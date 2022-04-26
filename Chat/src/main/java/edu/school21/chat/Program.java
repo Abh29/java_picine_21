@@ -2,7 +2,6 @@ package edu.school21.chat;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -32,13 +31,19 @@ public class Program {
             MessagesRepositoryJdbcImp messages = new MessagesRepositoryJdbcImp(dataSource);
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Enter a message ID");
-            long id = scanner.nextLong();
+            System.out.println("Enter the author ID");
+            long authorId = scanner.nextLong();
+            System.out.println("Enter the chatroom ID");
+            long roomId = scanner.nextLong();
 
-            Message message = messages.findById(id).get();
-            System.out.println(message);
+            scanner.nextLine();
+            System.out.println("Enter the message text");
+            String text = scanner.nextLine();
 
-        } catch (SQLException e) {
+            long id = messages.saveMessage(authorId, roomId, text);
+            System.out.println("message id: " + id);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

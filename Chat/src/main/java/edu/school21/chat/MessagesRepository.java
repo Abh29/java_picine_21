@@ -4,5 +4,6 @@ import java.util.Optional;
 
 public interface MessagesRepository {
 
-    Optional<Message> findById(Long id);
+    public Optional<Message> findById(Long id);
+    public Long saveMessage(Long authorId, Long roomId, String text) throws Exception;
 }

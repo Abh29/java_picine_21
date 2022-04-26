@@ -1,7 +1,6 @@
 package edu.school21.chat;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Message {
@@ -20,11 +19,11 @@ public class Message {
         this.timestamp = timestamp;
     }
 
-    public Message(User author, Chatroom room, String text) {
+    public Message(User author, Chatroom room, String text, Timestamp timestamp) {
         this.author = author;
         this.room = room;
         this.text = text;
-        timestamp = Timestamp.valueOf(LocalDateTime.now());
+        this.timestamp = timestamp;
     }
 
     public Long getId() {
