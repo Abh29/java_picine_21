@@ -12,12 +12,12 @@ public class Message {
     private Timestamp timestamp;
 
 
-    public Message(Long id, User author, Chatroom room, String text) {
+    public Message(Long id, User author, Chatroom room, String text, Timestamp timestamp) {
         this.id = id;
         this.author = author;
         this.room = room;
         this.text = text;
-        timestamp = Timestamp.valueOf(LocalDateTime.now());
+        this.timestamp = timestamp;
     }
 
     public Message(User author, Chatroom room, String text) {
@@ -71,10 +71,10 @@ public class Message {
     public String toString() {
         return "Message{" +
                 "id=" + id +
-                ", author=" + author +
-                ", room=" + room +
-                ", text='" + text + '\'' +
-                ", timestamp=" + timestamp +
+                ", \nauthor=" + author +
+                ", \nroom=" + room +
+                ", \ntext='" + text + '\'' +
+                ", \ntimestamp=" + timestamp +
                 '}';
     }
 
