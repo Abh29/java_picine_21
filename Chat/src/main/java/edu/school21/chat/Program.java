@@ -43,10 +43,3 @@ public class Program {
 
     }
 }
-
-/*
-db.driver = org.postgresql.Driver
-db.url = jdbc:postgresql://localhost:5432/java_picine_day_05
-db.user = postgres
-db.password = @Abe29
-*/
