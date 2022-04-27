@@ -9,6 +9,7 @@ dist/
 out/
 out/*
 *.class
+application.properties
 
 # Compiled Java class files
 *.class
