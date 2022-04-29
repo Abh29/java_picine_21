@@ -154,7 +154,7 @@ public class UsersRepositoryJdbcImpl implements UsersRepository<User>{
 
             ResultSet rs = statement.executeQuery();
             if (rs.next())
-                return rs.getInt("count");
+                return rs.getInt(1);
 
         } catch (SQLException e) {
             e.printStackTrace();

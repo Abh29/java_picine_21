@@ -2,11 +2,11 @@ package school21.spring.service.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import school21.spring.service.config.ApplicationConfig;
 import school21.spring.service.models.User;
 import school21.spring.service.repositories.UsersRepository;
+
+import java.util.Optional;
 
 
 @Component
@@ -24,13 +24,14 @@ public class UsersServiceImpl implements UsersService{
     public String signUp(String email) {
         String password = "secret";
 
-        User user = repository.findByEmail(email).get();
+        Optional<User> optionalUser = repository.findByEmail(email);
 
-        if (user != null) {
+        if (optionalUser.isPresent()) {
             System.err.println("email already exist in the database");
             return null;
         }
-        user = new User((long) (repository.getRecordsCount() + 1), email, password);
+
+        User user = new User((long) (repository.getRecordsCount() + 1), email, password);
         repository.save(user);
         return password;
 
