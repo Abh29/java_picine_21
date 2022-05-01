@@ -17,6 +17,10 @@ public class Shot {
         this.damage = damage;
     }
 
+    public Long getShooter_id() {
+        return shooter_id;
+    }
+
     public Vect2D getPosition() {
         return position;
     }

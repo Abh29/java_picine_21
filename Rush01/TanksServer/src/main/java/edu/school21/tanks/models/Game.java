@@ -13,6 +13,7 @@ public class Game {
     private Player player2;
     private double initialHp;
     private List<Shot> shots;
+    private boolean isUpdated;
 
     public Game(Player player1, Player player2, double initialHp) {
         this.player1 = player1;
@@ -70,7 +71,15 @@ public class Game {
         return shots;
     }
 
-    public void setShots(List<Shot> shots) {
-        this.shots = shots;
+    public void addShot(Shot shot) {
+        this.shots.add(shot);
+    }
+
+    public void setUpdated(boolean updated) {
+        isUpdated = updated;
+    }
+
+    public boolean isUpdated() {
+        return isUpdated;
     }
 }
